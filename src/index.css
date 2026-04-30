@@ -20,13 +20,7 @@ html {
 
 body {
   @apply m-0 min-h-screen bg-tech-bg text-tech-text antialiased;
-  background:
-    radial-gradient(circle at 88% 46%, rgba(37, 99, 235, 0.18), transparent 36%),
-    radial-gradient(circle at 22% 6%, rgba(219, 39, 119, 0.12), transparent 42%),
-    radial-gradient(circle at 75% -12%, rgba(2, 132, 199, 0.12), transparent 44%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(246, 247, 251, 1) 45%, rgba(241, 245, 249, 1) 100%);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: auto, auto, auto, auto;
+  background: var(--color-tech-bg);
 }
 
 .grid-overlay {

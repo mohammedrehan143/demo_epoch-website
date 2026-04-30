@@ -7,16 +7,21 @@ export function useGsapEffects(scopeRef) {
     gsap.registerPlugin(ScrollTrigger)
 
     const ctx = gsap.context(() => {
-      gsap.from('.reveal', {
-        y: 45,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.reveal-root',
-          start: 'top 80%',
-        },
+      gsap.utils.toArray('.reveal-root').forEach((root) => {
+        const items = root.querySelectorAll('.reveal')
+        if (!items.length) return
+
+        gsap.from(items, {
+          y: 45,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: root,
+            start: 'top 80%',
+          },
+        })
       })
 
       gsap.utils.toArray('.tilt-3d').forEach((card) => {

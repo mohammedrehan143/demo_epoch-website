@@ -78,7 +78,7 @@ function App() {
   }
 
   return (
-    <div className="pb-10 font-clean">
+    <div className="pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pb-10 font-clean">
       {isLoading && <LoaderScreen />}
       <div
         id="gridOverlay"

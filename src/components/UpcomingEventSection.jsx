@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { upcomingEvent } from '../data/siteData'
+import EventProgressTracker from './EventProgressTracker'
 
 const HandsLayer3D = lazy(() => import('./HandsLayer3D'))
 
@@ -105,11 +106,11 @@ function UpcomingEventSection() {
     <section id="upcoming" ref={sectionRef} className="reveal-root mt-10">
       <div className="relative overflow-hidden py-10">
         <div className="pointer-events-none absolute inset-x-0 top-3 z-0 overflow-hidden">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#0c0f19] to-transparent" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#0c0f19] to-transparent" />
-          <div ref={topTrackRef} className="flex w-max gap-16 whitespace-nowrap font-display text-7xl font-semibold text-white/15 md:text-8xl">
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-tech-bg to-transparent" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-tech-bg to-transparent" />
+          <div ref={topTrackRef} className="flex w-max gap-16 whitespace-nowrap font-display text-7xl font-semibold text-black/10 md:text-8xl">
             {Array.from({ length: 10 }).map((_, i) => (
-              <span key={`top-${i}`} className="text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.22)]">
+              <span key={`top-${i}`} className="text-transparent [-webkit-text-stroke:1px_rgba(15,23,42,0.20)]">
                 /21 /22 /23
               </span>
             ))}
@@ -117,9 +118,9 @@ function UpcomingEventSection() {
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-2 z-0 overflow-hidden">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#0c0f19] to-transparent" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#0c0f19] to-transparent" />
-          <div ref={bottomTrackRef} className="flex w-max gap-16 whitespace-nowrap font-display text-7xl font-semibold text-white/12 md:text-8xl">
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-tech-bg to-transparent" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-tech-bg to-transparent" />
+          <div ref={bottomTrackRef} className="flex w-max gap-16 whitespace-nowrap font-display text-7xl font-semibold text-black/10 md:text-8xl">
             {Array.from({ length: 10 }).map((_, i) => (
               <span key={`bottom-${i}`}>Partner Awards</span>
             ))}
@@ -128,10 +129,10 @@ function UpcomingEventSection() {
 
         <p className="reveal relative z-10 font-clean text-xs tracking-[0.24em] text-tech-muted">UPCOMING EVENT</p>
         <div className="pointer-events-none absolute left-[-4%] top-14 z-0 w-[120%] select-none">
-          <p className="font-display text-[70px] font-semibold leading-[0.9] text-white/90 md:text-[120px]">
+          <p className="font-display text-[70px] font-semibold leading-[0.9] text-black/15 md:text-[120px]">
             Webflow Award
           </p>
-          <p className="mt-6 font-display text-[70px] font-semibold leading-[0.9] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.24)] md:text-[120px]">
+          <p className="mt-6 font-display text-[70px] font-semibold leading-[0.9] text-transparent [-webkit-text-stroke:1px_rgba(15,23,42,0.18)] md:text-[120px]">
             Partner Award
           </p>
         </div>
@@ -145,16 +146,18 @@ function UpcomingEventSection() {
               href={upcomingEvent.url}
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex rounded-full bg-white/10 px-4 py-2 font-clean text-sm hover:bg-white/15"
+              className="mt-6 inline-flex rounded-full border border-tech-line bg-white/70 px-4 py-2 font-clean text-sm hover:bg-white/90"
             >
               Open event page
             </a>
+
+            <EventProgressTracker title="Event progress" currentStep={2} />
           </div>
 
           <div className="reveal relative">
             <div
               ref={cardRef}
-              className="relative mx-auto aspect-[3/4] w-[min(390px,96%)] overflow-hidden rounded-[34px] bg-black/45 shadow-[0_30px_120px_rgba(0,0,0,0.55)] backdrop-blur"
+              className="relative mx-auto aspect-[3/4] w-[min(390px,96%)] overflow-hidden rounded-[34px] border border-tech-line bg-white/70 shadow-[0_30px_120px_rgba(15,23,42,0.14)] backdrop-blur"
             >
               <Suspense fallback={null}>
                 <HandsLayer3D />

@@ -25,99 +25,81 @@ function Navbar({ onLoginClick }) {
   }
 
   return (
-    <header className="sticky top-4 z-50 mx-auto mt-4 flex w-[min(1160px,94%)] items-center justify-between rounded-full bg-black/30 px-5 py-3 backdrop-blur">
-      <div className="font-dot text-lg tracking-wider">EPOCH BMSIT&M</div>
-      <nav className="hidden gap-5 text-sm text-tech-muted md:flex">
-        <button type="button" onClick={goHome} className="hover:text-white">
-          Home
+    <header className="fixed inset-x-0 bottom-4 z-50">
+      <div className="mx-auto flex w-[min(980px,94%)] items-center justify-between gap-3 rounded-full border border-tech-line bg-white/75 px-4 py-2 shadow-[0_18px_70px_rgba(15,23,42,0.12)] backdrop-blur">
+        <button type="button" onClick={goHome} className="font-dot text-[11px] tracking-[0.22em] text-tech-text">
+          EPOCH
         </button>
-        <button type="button" onClick={() => goToSection('events')} className="hover:text-white">
-          Events
-        </button>
-        <button type="button" onClick={() => goToSection('faq')} className="hover:text-white">
-          FAQ
-        </button>
-        <button type="button" onClick={() => goToSection('contact')} className="hover:text-white">
-          Contact Us
-        </button>
-        <div className="relative">
+
+        <nav className="hidden items-center gap-1 md:flex">
+          {[
+            { label: 'Events', id: 'events' },
+            { label: 'Gallery', id: 'gallery' },
+            { label: 'Members', id: 'members' },
+            { label: 'FAQ', id: 'faq' },
+            { label: 'Contact', id: 'contact' },
+          ].map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => goToSection(item.id)}
+              className="rounded-full px-3 py-1 text-sm font-clean text-tech-muted hover:bg-black/5 hover:text-tech-text"
+            >
+              {item.label}
+            </button>
+          ))}
           <button
             type="button"
-            onClick={() => setOpenDesktop((value) => !value)}
-            className="rounded-full bg-white/5 px-3 py-1 hover:text-white"
+            onClick={onLoginClick}
+            className="ml-1 rounded-full border border-tech-line bg-white/80 px-4 py-1 text-sm font-display font-semibold text-tech-text hover:bg-white"
           >
-            More
+            Login
           </button>
-          {openDesktop && (
-            <div className="absolute right-0 mt-2 w-44 rounded-xl bg-tech-card/90 p-2 shadow-2xl backdrop-blur">
+        </nav>
+
+        <div className="relative md:hidden">
+          <button
+            type="button"
+            onClick={() => setOpenMobile((value) => !value)}
+            className="rounded-full border border-tech-line bg-white/80 px-3 py-1 text-sm font-clean text-tech-muted hover:text-tech-text"
+          >
+            Menu
+          </button>
+          {openMobile && (
+            <div className="absolute bottom-12 right-0 w-52 rounded-2xl border border-tech-line bg-white/92 p-2 shadow-xl backdrop-blur">
               <button
                 type="button"
-                onClick={() => goToSection('gallery')}
-                className="block w-full rounded-md px-3 py-2 text-left hover:bg-white/5"
+                onClick={goHome}
+                className="block w-full rounded-xl px-3 py-2 text-left font-display text-sm font-semibold hover:bg-black/5"
               >
-                Gallery
+                Home
               </button>
-              <button
-                type="button"
-                onClick={() => goToSection('members')}
-                className="block w-full rounded-md px-3 py-2 text-left hover:bg-white/5"
-              >
-                Members
-              </button>
+              {[
+                { label: 'Events', id: 'events' },
+                { label: 'Gallery', id: 'gallery' },
+                { label: 'Members', id: 'members' },
+                { label: 'FAQ', id: 'faq' },
+                { label: 'Contact', id: 'contact' },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => goToSection(item.id)}
+                  className="block w-full rounded-xl px-3 py-2 text-left font-clean text-sm text-tech-muted hover:bg-black/5 hover:text-tech-text"
+                >
+                  {item.label}
+                </button>
+              ))}
               <button
                 type="button"
                 onClick={onLoginClick}
-                className="mt-1 w-full rounded-md px-3 py-2 text-left hover:bg-white/5"
+                className="mt-1 block w-full rounded-xl border border-tech-line bg-white/80 px-3 py-2 text-left font-display text-sm font-semibold hover:bg-white"
               >
                 Login
               </button>
             </div>
           )}
         </div>
-      </nav>
-      <div className="relative md:hidden">
-        <button
-          type="button"
-          onClick={() => setOpenMobile((value) => !value)}
-          className="rounded-full bg-white/5 px-4 py-2 text-sm text-tech-muted hover:text-white"
-        >
-          More
-        </button>
-        {openMobile && (
-          <div className="absolute right-0 mt-2 w-48 rounded-xl bg-tech-card/90 p-2 shadow-2xl backdrop-blur">
-            <button type="button" onClick={goHome} className="block w-full rounded-md px-3 py-2 text-left hover:bg-white/5">
-              Home
-            </button>
-            <button
-              type="button"
-              onClick={() => goToSection('events')}
-              className="block w-full rounded-md px-3 py-2 text-left hover:bg-white/5"
-            >
-              Events
-            </button>
-            <button
-              type="button"
-              onClick={() => goToSection('faq')}
-              className="block w-full rounded-md px-3 py-2 text-left hover:bg-white/5"
-            >
-              FAQ
-            </button>
-            <button
-              type="button"
-              onClick={() => goToSection('contact')}
-              className="block w-full rounded-md px-3 py-2 text-left hover:bg-white/5"
-            >
-              Contact Us
-            </button>
-            <button
-              type="button"
-              onClick={onLoginClick}
-              className="mt-1 block w-full rounded-md px-3 py-2 text-left hover:bg-white/5"
-            >
-              Login
-            </button>
-          </div>
-        )}
       </div>
     </header>
   )

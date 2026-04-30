@@ -4,7 +4,7 @@ const HeroHand3D = lazy(() => import('./HeroHand3D'))
 
 function HeroSection({ onJoin }) {
   return (
-    <section id="home" className="hero-root relative overflow-hidden px-3 pb-12 pt-22 md:px-5 md:pt-24">
+    <section id="home" className="hero-root relative overflow-visible px-3 pb-12 pt-22 md:px-5 md:pt-24">
       <div className="hero-orb absolute left-[35%] top-28 h-80 w-80 rounded-full bg-tech-accent/35 blur-[120px]" />
       <Suspense fallback={null}>
         <HeroHand3D />
@@ -13,17 +13,25 @@ function HeroSection({ onJoin }) {
         IT IS TIME TO TAKE A LOOK AT OUR
       </p>
       <div className="relative mt-4">
-        <p className="pointer-events-none absolute left-0 top-8 font-dot text-7xl text-white/10 md:text-[12rem]">
+        <p className="pointer-events-none absolute left-0 top-8 font-dot text-7xl text-black/12 md:text-[12rem]">
           2026
         </p>
         <h1 className="reveal relative z-10 mt-3 font-dot text-5xl leading-[0.95] md:text-8xl">
-          1ST YEAR
+          <span className="text-gradient">1ST</span>{' '}
+          <span className="font-display font-semibold tracking-tight">YEAR</span>
           <br />
-          IN REVIEW
+          <span className="font-clean font-bold">IN</span>{' '}
+          <span className="text-gradient-soft">REVIEW</span>
         </h1>
       </div>
       <div className="reveal mt-8 flex flex-wrap items-center gap-5 text-sm text-tech-muted">
-        <span className="font-dot text-2xl text-white md:text-3xl">College Tech Club</span>
+        <span className="highlight-chip">
+          <span className="font-dot text-lg text-tech-text md:text-xl">College</span>
+          <span className="font-display text-lg font-semibold text-tech-text md:text-xl">Tech</span>
+          <span className="font-clean text-lg font-bold text-tech-text md:text-xl">
+            <span className="text-gradient">Club</span>
+          </span>
+        </span>
         <span>Scroll down</span>
       </div>
       <div className="reveal mt-7 flex flex-wrap gap-3">

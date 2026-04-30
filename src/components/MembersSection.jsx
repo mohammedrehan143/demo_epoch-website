@@ -32,7 +32,7 @@ function MembersSection() {
       <p className="reveal font-clean text-xs tracking-[0.24em] text-tech-muted">MEMBERS</p>
       <h2 className="reveal mt-2 font-display text-4xl font-semibold md:text-6xl">
         Our <span className="text-tech-pink">#1</span> Goal Was To Build{' '}
-        <span className="text-transparent [-webkit-text-stroke:1px_#dce6ff]">A Great Team</span>
+        <span className="text-transparent [-webkit-text-stroke:1px_rgba(15,23,42,0.45)]">A Great Team</span>
       </h2>
       <div className="relative mt-6 hidden min-h-[640px] md:block">
         {members.slice(0, layout.length).map((member, idx) => {
@@ -40,7 +40,7 @@ function MembersSection() {
           return (
             <article
               key={member.id}
-              className="member-float absolute w-[170px] select-none rounded-2xl bg-white/10 p-2 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur"
+              className="member-float absolute w-[170px] select-none rounded-2xl border border-tech-line bg-white/70 p-2 shadow-[0_18px_60px_rgba(15,23,42,0.10)] backdrop-blur"
               style={{
                 left: pos.left,
                 top: pos.top,
@@ -48,7 +48,7 @@ function MembersSection() {
                 animationDelay: `-${pos.delay}s`,
               }}
             >
-              <div className="reveal overflow-hidden rounded-xl bg-black/25 p-2">
+              <div className="reveal overflow-hidden rounded-xl bg-white/80 p-2">
                 <img
                   src={member.photo}
                   alt={member.name}
@@ -56,7 +56,7 @@ function MembersSection() {
                 />
                 <div className="mt-2 flex items-center justify-between">
                   <p className="font-display text-sm font-semibold">{member.name}</p>
-                  <span className="rounded-full bg-white/10 px-2 py-1 font-clean text-[10px] text-tech-muted">
+                  <span className="rounded-full bg-black/5 px-2 py-1 font-clean text-[10px] text-tech-muted">
                     {member.role}
                   </span>
                 </div>
@@ -72,7 +72,7 @@ function MembersSection() {
           return (
             <article
               key={member.id}
-              className="member-float absolute w-[150px] select-none rounded-2xl bg-white/10 p-2 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur"
+              className="member-float absolute w-[150px] select-none rounded-2xl border border-tech-line bg-white/70 p-2 shadow-[0_18px_60px_rgba(15,23,42,0.10)] backdrop-blur"
               style={{
                 left: pos.left,
                 top: pos.top,
@@ -80,11 +80,11 @@ function MembersSection() {
                 animationDelay: `-${pos.delay}s`,
               }}
             >
-              <div className="reveal overflow-hidden rounded-xl bg-black/25 p-2">
+              <div className="reveal overflow-hidden rounded-xl bg-white/80 p-2">
                 <img src={member.photo} alt={member.name} className="h-[92px] w-full rounded-lg object-cover" />
                 <div className="mt-2">
                   <p className="font-display text-sm font-semibold leading-tight">{member.name}</p>
-                  <span className="mt-1 inline-block rounded-full bg-white/10 px-2 py-1 font-clean text-[10px] text-tech-muted">
+                  <span className="mt-1 inline-block rounded-full bg-black/5 px-2 py-1 font-clean text-[10px] text-tech-muted">
                     {member.role}
                   </span>
                 </div>

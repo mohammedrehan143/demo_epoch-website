@@ -21,7 +21,7 @@ function HomePage({ onLoginClick }) {
   return (
     <main ref={scopeRef} className="mx-auto mt-6 w-[min(1160px,94%)] pb-14">
       {notice && (
-        <div className="mb-4 rounded-xl bg-white/10 px-4 py-3 font-clean text-sm text-tech-text">
+        <div className="mb-4 rounded-xl border border-tech-line bg-white/70 px-4 py-3 font-clean text-sm text-tech-text shadow-sm">
           {notice}
         </div>
       )}
@@ -78,11 +78,11 @@ function App() {
   }
 
   return (
-    <div className="pb-10 font-dot">
+    <div className="pb-10 font-clean">
       {isLoading && <LoaderScreen />}
       <div
         id="gridOverlay"
-        className="pointer-events-none fixed inset-0 z-0 opacity-100"
+        className="grid-overlay pointer-events-none fixed inset-0 z-0"
         style={{
           backgroundImage: "url('/bg-grid.svg')",
           backgroundRepeat: 'repeat',

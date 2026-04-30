@@ -20,7 +20,7 @@ function LoginPage({ onLogin, onBack }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="College email"
-          className="rounded-xl border border-tech-line bg-black/30 px-4 py-3 outline-none focus:border-tech-accent"
+          className="rounded-xl border border-tech-line bg-white/80 px-4 py-3 outline-none focus:border-tech-accent"
         />
         <input
           type="password"
@@ -28,7 +28,7 @@ function LoginPage({ onLogin, onBack }) {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
-          className="rounded-xl border border-tech-line bg-black/30 px-4 py-3 outline-none focus:border-tech-accent"
+          className="rounded-xl border border-tech-line bg-white/80 px-4 py-3 outline-none focus:border-tech-accent"
         />
         <button type="submit" className="rounded-xl bg-white py-3 font-semibold text-black">
           Login
